@@ -3,6 +3,7 @@ import styles from "./timerpage.module.css";
 import Member from "../components/timer and member/member";
 import Stopwatch from "../components/timer and member/Stopwatch";
 import Navbar from "../components/Navbar";
+import Search from "../components/Search";
 
 function TimerPage() {
   const image1 =
@@ -47,6 +48,7 @@ function TimerPage() {
           <img src={imageSrc} alt="Snowman" />
           <Stopwatch time={time} setTime={setTime} />
         </div>
+        <Search/>
         <div className={styles.friends}>
           <Member name="Jinwon" />
           <Member name="Ahreum" />
