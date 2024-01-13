@@ -1,3 +1,16 @@
+import logo from './img/logo.svg';
+import './App.css';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import HomePage from './pages/home/homepage.jsx';
+import Group from './pages/group/group.jsx';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthContext } from './context/AuthContext.js';
+import { useContext } from 'react';
+import Stopwatch from "./components/Stopwatch";
+
+
 import logo from "./logo.svg";
 import "./App.css";
 import Stopwatch from "./components/timer/Stopwatch";
@@ -10,16 +23,6 @@ import Snowfall from 'react-snowfall'
 import GroupPage from "./components/group/grouppage";
 
 function App() {
-  // useEffect(() => {
-  //   function start() {
-  //     gapi.client.init({
-  //       clientId: clientId,
-  //       scope: ""
-  //     })
-  //   };
-
-  //   gapi.load('client:auth2', start);
-  // });
   const studyClick = () => {
     // Your button click logic here
     // console.log('Button clicked!');
@@ -28,6 +31,16 @@ function App() {
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
   };
+
+  const {currentUser} = useContext(AuthContext);
+
+
+  const ProtectedRoute = ({children}) => {
+    if (!currentUser) {
+      return <Navigate to="/homepage" />
+    }
+    return children
+  }
 
   return (
     <>
@@ -46,6 +59,23 @@ function App() {
           <Route path="/study" Component={TimerPage} />
         </Routes>
       </Router>
+      {/* <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route
+            index
+            element={
+              <ProtectedRoute>
+                <Group />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="homepage" element={<HomePage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter> */}
     </div>
     </>
   );
