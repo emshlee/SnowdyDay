@@ -11,20 +11,27 @@
 }
 .progress{
   position: absolute;
-  top: 575px;
+  top: 550px;
   left: 530px;
   width: 350px;
 }
+
+.find {
+  display: flex;
+  flex-direction: column;
+}
+
 .friends {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     /* align-items: center; */
     /* gap: 65px; */
     position: absolute;
     bottom: 80px;
-    left: 630px;
+    left: 650px;
     justify-content: center;
     align-items: center;
+    gap: 50px;
 
 }
 
