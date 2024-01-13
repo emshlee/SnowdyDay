@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import LoginButton from './components/login';
 import LogoutButton from './components/logout';
+import Stopwatch from './components/Stopwatch'
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script'
 
@@ -25,6 +26,7 @@ function App() {
     <div className="App">
       <LoginButton/>
       <LogoutButton/>
+      <Stopwatch/>
     </div>
   );
 }
