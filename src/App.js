@@ -1,7 +1,6 @@
 import logo from './img/logo.svg';
 import './App.css';
 import Login from './pages/Login.jsx';
-import LogoutButton from './components/Logout.jsx';
 import Register from './pages/Register.jsx';
 import Home from './pages/Home.jsx';
 import { useEffect } from 'react';
