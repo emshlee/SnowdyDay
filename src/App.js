@@ -14,7 +14,7 @@ function App() {
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/homepage" />;
+      return <Navigate to="/" />;
     }
     return children;
   };
@@ -33,8 +33,15 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="/study-session" element={<TimerPage />} />
-            <Route path="/group" element={<GroupPage />} />
+            <Route path="/study" element={
+              <ProtectedRoute>
+                 <TimerPage/>
+              </ProtectedRoute>
+              } />
+            <Route path="/group" element={
+            <ProtectedRoute>
+            <GroupPage/>
+         </ProtectedRoute>} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./timerpage.module.css";
 import Member from "../components/timer and member/member";
 import Stopwatch from "../components/timer and member/Stopwatch";
+import Navbar from "../components/Navbar";
 
 function TimerPage() {
   const image1 =
@@ -39,6 +40,7 @@ function TimerPage() {
 
   return (
     <>
+    <Navbar className="navbar" />
       <h1 className="text"> SnowdyDay.</h1>
       <div className={styles.column}>
         <div className={styles.content}>
