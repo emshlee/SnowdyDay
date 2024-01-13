@@ -1,0 +1,32 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 65px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.friends {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    gap: 65px;
+    position: absolute;
+    bottom: 80px;
+    left: 480px;
+    justify-content: center;
+    align-items: center;
+}
+
+.content img {
+    width: 500px;
+    position: absolute;
+    left: 20%;
+    bottom: 30%;
+
+
+}
