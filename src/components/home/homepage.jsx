@@ -22,7 +22,11 @@ function HomePage() {
 
       const loginClick = () => {
         // Your button click logic here
-        console.log('Button clicked!');
+        // console.log('Button clicked!');
+        fetch('/login')  // Assuming your Django server is running on the same domain
+            .then(response => response.json())  // If the response is JSON, you can parse it
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
       };
 
     return (
