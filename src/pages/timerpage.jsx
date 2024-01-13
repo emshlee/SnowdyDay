@@ -54,7 +54,6 @@ function TimerPage() {
           <img src={imageSrc} alt="Snowman" />
           <Stopwatch time={time} setTime={setTime} />
         </div>
-        <Search/>
         <div className={styles.progress}>
           <ProgressBar completed={progress} />
         </div>
