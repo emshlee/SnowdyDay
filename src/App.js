@@ -6,6 +6,7 @@ import { gapi } from "gapi-script";
 import HomePage from "./components/home/homepage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TimerPage from "./components/timer/timerpage";
+import Snowfall from 'react-snowfall'
 
 function App() {
   // useEffect(() => {
@@ -28,6 +29,17 @@ function App() {
   };
 
   return (
+    <>
+    <div>
+      <Snowfall
+        // The color of the snowflake, can be any valid CSS color.
+        color="white"
+        // Applied to the canvas element.
+        style={{ background: '#D6E9FF' }}
+        // Controls the number of snowflakes that are created (defaults to 150).
+        snowflakeCount={130}
+      />
+    </div>
     <div className="App">
       <Router>
         <Routes>
@@ -36,6 +48,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </>
   );
 }
 

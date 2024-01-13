@@ -21,3 +21,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.content img {
+    width: 500px;
+    position: absolute;
+    left: 20%;
+    bottom: 30%;
+
+
+}
