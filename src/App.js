@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        {/* <Route path="/">
           <Route index element={
           <ProtectedRoute>
             <Home />
@@ -36,7 +36,7 @@ function App() {
           />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   
