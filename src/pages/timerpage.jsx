@@ -60,6 +60,7 @@ function TimerPage() {
         <div className={styles.friends}>
           <h1 className="title"> Find your group members</h1>
           <Search/>
+          
         </div>
       </div>
     </>
