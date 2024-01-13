@@ -1,10 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Stopwatch from "./components/Stopwatch";
+import Stopwatch from "./components/timer/Stopwatch";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
 import HomePage from "./components/home/homepage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TimerPage from "./components/timer/timerpage";
 
 function App() {
   // useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" Component={HomePage} />
-          <Route path="/study" Component={Stopwatch} />
+          <Route path="/study" Component={TimerPage} />
         </Routes>
       </Router>
     </div>
