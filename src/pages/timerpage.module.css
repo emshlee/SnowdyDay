@@ -17,14 +17,15 @@
 }
 .friends {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* align-items: center; */
-    gap: 65px;
+    /* gap: 65px; */
     position: absolute;
     bottom: 80px;
-    left: 480px;
+    left: 630px;
     justify-content: center;
     align-items: center;
+
 }
 
 .content img {
