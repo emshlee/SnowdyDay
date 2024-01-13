@@ -13,6 +13,10 @@ import { AuthContext } from './context/AuthContext.js';
 import { useContext } from 'react';
 
 
+import Stopwatch from './components/Stopwatch'
+import { useEffect } from 'react';
+import { gapi } from 'gapi-script'
+import HomePage from './components/home/homepage';
 
 
 function App() {
