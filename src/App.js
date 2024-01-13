@@ -2,7 +2,7 @@ import logo from './img/logo.svg';
 import './App.css';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
-import Home from './pages/Home.jsx';
+import Home from './pages/Group.jsx';
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/">
+        { <Route path="/">
           <Route index element={
           <ProtectedRoute>
             <Home />
@@ -36,7 +36,7 @@ function App() {
           />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-        </Route> */}
+        </Route> }
       </Routes>
     </BrowserRouter>
   
