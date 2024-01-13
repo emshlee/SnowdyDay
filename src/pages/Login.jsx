@@ -18,7 +18,7 @@ const Login = () => {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/chat");
+            navigate("/group");
         }
         catch(err) {
             setErr(true);
