@@ -2,7 +2,7 @@ import React from 'react'
 import styles from'./homepage.module.css'
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script'
-import Button from '../button/button';
+import Button from '../../components/button/button';
 
 const clientId = '314682349715-vvl2mgqregs4hokcnsmkhu8s796ru1da.apps.googleusercontent.com';
 
