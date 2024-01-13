@@ -102,3 +102,19 @@ code {
   margin-left: 70px;
   margin-top: 40px;
 }
+
+.title {
+  color: #176B87;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.16px;
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
+  /* margin-left: 70px;
+  margin-top: 40px; */
+}

@@ -4,6 +4,7 @@ import Member from "../components/timer and member/member";
 import Stopwatch from "../components/timer and member/Stopwatch";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
+import ProgressBar from "../components/timer and member/progressBar";
 
 function TimerPage() {
   const image1 =
@@ -19,29 +20,34 @@ function TimerPage() {
 
   const [time, setTime] = useState(0);
   const [imageSrc, setImageSrc] = useState(image1);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    console.log(time)
+    console.log(time);
     if (time > 20000) {
-      setImageSrc(image5)
+      setImageSrc(image5);
+    } else if (time > 15000) {
+      setImageSrc(image4);
+    } else if (time > 10000) {
+      setImageSrc(image3);
+    } else if (time > 5000) {
+      setImageSrc(image2);
+    } else if (time < 5000) {
+      setImageSrc(image1);
     }
-    else if (time > 15000) {
-      setImageSrc(image4)
-    }
-    else if (time > 10000){
-      setImageSrc(image3)
-    }
-    else if (time > 5000){
-      setImageSrc(image2)
-    }
-    else if (time < 5000){
-      setImageSrc(image1)
+  }, [time]);
+
+  useEffect(() => {
+    if (progress >= 100) {
+      setProgress(100);
+    } else {
+      setProgress(Math.floor((time / 1000) % 60) * 5);
     }
   }, [time]);
 
   return (
     <>
-    <Navbar className="navbar" />
+      <Navbar className="navbar" />
       <h1 className="text"> SnowdyDay.</h1>
       <div className={styles.column}>
         <div className={styles.content}>
@@ -49,9 +55,12 @@ function TimerPage() {
           <Stopwatch time={time} setTime={setTime} />
         </div>
         <Search/>
+        <div className={styles.progress}>
+          <ProgressBar completed={progress} />
+        </div>
         <div className={styles.friends}>
-          <Member name="Jinwon" />
-          <Member name="Ahreum" />
+          <h1 className="title"> Find your group members</h1>
+          <Search/>
         </div>
       </div>
     </>
