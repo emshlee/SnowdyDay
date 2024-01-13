@@ -40,20 +40,20 @@ const Search = () => {
   };
 
   const handleSelect = async () => {
-    //check whether the group(chats in firestore) exists, if not create
+    //check whether the group exists, if not create
     const combinedId =
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
     try {
-      const res = await getDoc(doc(db, "chats", combinedId));
+      const res = await getDoc(doc(db, "groups", combinedId));
 
       if (!res.exists()) {
-        //create a chat in chats collection
-        await setDoc(doc(db, "chats", combinedId), { messages: [] });
+        //create a group in groups collection
+        await setDoc(doc(db, "groups", combinedId), {  });
 
-        //create user chats
-        await updateDoc(doc(db, "userChats", currentUser.uid), {
+        //create user group
+        await updateDoc(doc(db, "userGroups", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
@@ -62,7 +62,7 @@ const Search = () => {
           [combinedId + ".date"]: serverTimestamp(),
         });
 
-        await updateDoc(doc(db, "userChats", user.uid), {
+        await updateDoc(doc(db, "userGroups", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName,
@@ -89,9 +89,9 @@ const Search = () => {
       </div>
       {err && <span>User not found!</span>}
       {user && (
-        <div className="userChat" onClick={handleSelect}>
+        <div className="usergroup" onClick={handleSelect}>
           <img src={user.photoURL} alt="" />
-          <div className="userChatInfo">
+          <div className="userGroupInfo">
             <span>{user.displayName}</span>
           </div>
         </div>
