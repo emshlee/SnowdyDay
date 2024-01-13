@@ -4,6 +4,8 @@
   width: auto;
   height: auto;
   left: 350px;
+  flex-direction: column;
+
 }
 
 .numbers {
@@ -14,8 +16,8 @@
 
 .buttons {
   position: relative;
-  left: 195px;
-  top: 20px;
+  /* left: 195px;
+  top: 20px; */
 }
 
 .buttons button {

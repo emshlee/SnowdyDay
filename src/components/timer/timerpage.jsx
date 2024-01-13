@@ -9,10 +9,10 @@ function TimerPage() {
       <h1 className="text"> SnowdyDay.</h1>
       <div className={styles.column}>
         <div className={styles.content}>
-          <img src="src/images/1.jpeg" />
+          <img src="" alt="Snowman"/>
           <Stopwatch />
         </div>
-        <div className={styles.content}>
+        <div className={styles.friends}>
           <Member name="Jinwon" />
           <Member name="Ahreum" />
         </div>
