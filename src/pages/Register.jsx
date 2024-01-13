@@ -9,6 +9,7 @@ import {
 } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
