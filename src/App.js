@@ -1,31 +1,39 @@
-import logo from './logo.svg';
+import logo from './img/logo.svg';
 import './App.css';
-import LoginButton from './components/login';
-import LogoutButton from './components/logout';
+import Login from './pages/Login.jsx';
+import LogoutButton from './components/Logout.jsx';
+import Register from './pages/Register.jsx';
+import Home from './pages/Home.jsx';
 import { useEffect } from 'react';
-import { gapi } from 'gapi-script'
+import { gapi } from 'gapi-script';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthContext } from './context/AuthContext.js';
+import { useContext } from 'react';
 
-const clientId = '314682349715-vvl2mgqregs4hokcnsmkhu8s796ru1da.apps.googleusercontent.com';
+
 
 
 function App() {
 
-  useEffect(() => {
-    function start() { 
-      gapi.client.init({
-        clientId: clientId,
-        scope: ""
-      })
-    };
+  const {currentUser} = useContext(AuthContext);
 
-    gapi.load('client:auth2', start);
-  });
+  const ProtectedRoute = ({children}) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />
+    }
+  }
 
   return (
-    <div className="App">
-      <LoginButton/>
-      <LogoutButton/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/">
+        <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
+    </Routes>
+    </BrowserRouter>
+  
   );
 }
 
