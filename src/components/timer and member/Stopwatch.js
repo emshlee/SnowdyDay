@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Stopwatch.css";
 
-const Stopwatch = () => {
-  const [time, setTime] = useState(0);
+const Stopwatch = ({ time, setTime }) => {
+  // const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
 
   useEffect(() => {
