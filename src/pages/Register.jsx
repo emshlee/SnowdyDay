@@ -27,34 +27,35 @@ const Register = () => {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
 
-            /// For avatar
-            const storageRef = ref(storage, displayName);
+             //Create a unique image name
+            const date = new Date().getTime();
+            const storageRef = ref(storage, `${displayName + date}`);
 
-            const uploadTask = uploadBytesResumable(storageRef, file);
-
-            uploadTask.on( 
-            (error) => {
-                // unsuccessful uploads
-                setErr(true);
-            }, 
-            () => {
-                // successful uploads on complete
-                getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                    await updateProfile(res.user,{
-                        displayName,
-                        photoURL: downloadURL
+            await uploadBytesResumable(storageRef, file).then(() => {
+                getDownloadURL(storageRef).then(async (downloadURL) => {
+                try {
+                    //Update profile
+                    await updateProfile(res.user, {
+                    displayName,
+                    photoURL: downloadURL,
                     });
+                    //create user on firestore
                     await setDoc(doc(db, "users", res.user.uid), {
-                        uid: res.user.uid,
-                        displayName,
-                        email,
-                        photoURL: downloadURL,
+                    uid: res.user.uid,
+                    displayName,
+                    email,
+                    photoURL: downloadURL,
                     });
+
+                    //create empty user groups on firestore
+                    await setDoc(doc(db, "userGroups", res.user.uid), {});
                     navigate("/");
-            
+                } catch (err) {
+                    console.log(err);
+                    setErr(true);
+                }
                 });
-            }
-            );
+            });
         }
         catch(err) {
             setErr(true);
