@@ -13,8 +13,11 @@
 .friends {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
     gap: 65px;
-    position: fixed;
+    position: absolute;
     bottom: 80px;
+    left: 480px;
+    justify-content: center;
+    align-items: center;
 }
