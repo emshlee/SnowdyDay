@@ -1,13 +1,13 @@
 import "./App.css";
-import HomePage from "./pages/home/homepage.jsx";
+import HomePage from "./pages/homepage.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext.js";
 import { useContext } from "react";
-import TimerPage from "./components/timer/timerpage";
-import Login from "./pages/Login.jsx"
-import Register from "./pages/Register.jsx"
+import TimerPage from "./pages/timerpage.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 import Snowfall from "react-snowfall";
-import GroupPage from "./pages/group/grouppage";
+import GroupPage from "./pages/grouppage.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -35,8 +35,6 @@ function App() {
             <Route path="register" element={<Register />} />
             <Route path="/study-session" element={<TimerPage />} />
             <Route path="/group" element={<GroupPage />} />
-            {/* <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} /> */}
           </Routes>
         </BrowserRouter>
       </div>
