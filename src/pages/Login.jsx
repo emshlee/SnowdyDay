@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import Button from "../components/button/button";
 
 
 const Login = () => {
@@ -33,10 +34,10 @@ const Login = () => {
                 <span className="reg">Login</span>
 
                 <form onSubmit={handleSubmit}>
-                    <input type="email" placeholder="email"/>
-                    <input type="password" placeholder="password"/>
+                    <input type="email" placeholder="Email"/>
+                    <input type="password" placeholder="Password"/>
                     
-                    <button>Login</button>
+                    <Button label="Login" className="login"></Button>
                     {err && <span>Something went wrong</span>}
                 </form>
                 <p>Don't have an account yet? <Link to="/register">Register</Link></p>
