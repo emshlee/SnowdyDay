@@ -58,9 +58,10 @@ function TimerPage() {
           <ProgressBar completed={progress} />
         </div>
         <div className={styles.friends}>
-          <h1 className="title"> Find your group members</h1>
-          <Search/>
-          
+          <div className={styles.find}>
+            <h1 className="title"> Find your group members</h1>
+            <Search/>
+          </div>
         </div>
       </div>
     </>
