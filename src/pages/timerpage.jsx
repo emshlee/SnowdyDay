@@ -21,16 +21,16 @@ function TimerPage() {
 
   useEffect(() => {
     console.log(time)
-    if (time > 25000) {
+    if (time > 20000) {
       setImageSrc(image5)
     }
-    else if (time > 20000) {
+    else if (time > 15000) {
       setImageSrc(image4)
     }
-    else if (time > 15000){
+    else if (time > 10000){
       setImageSrc(image3)
     }
-    else if (time > 10000){
+    else if (time > 5000){
       setImageSrc(image2)
     }
     else if (time < 5000){
